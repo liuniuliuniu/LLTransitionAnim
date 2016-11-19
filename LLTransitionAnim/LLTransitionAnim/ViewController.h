@@ -1,8 +1,8 @@
 //
 //  ViewController.h
-//  LLTransitionAnim
+//  self----转场且动画
 //
-//  Created by liushaohua on 16/11/20.
+//  Created by liushaohua on 16/9/4.
 //  Copyright © 2016年 liushaohua. All rights reserved.
 //
 
