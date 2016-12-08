@@ -15,24 +15,17 @@
 @end
 
 @implementation ViewController{
-
     NSInteger idx;
 }
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     idx = 1;
     [self setupUI];
 }
-#pragma  mark - 搭建界面
 - (void)swipeAction:(UISwipeGestureRecognizer * )sender
 {
-
-    
     UIViewAnimationOptions option;
-  
     NSString *   subtype;
-    
     switch (sender.direction) {
         case UISwipeGestureRecognizerDirectionLeft:
            idx ++;
@@ -41,7 +34,6 @@
                 }
             option = UIViewAnimationOptionTransitionCurlUp;
             subtype = kCATransitionFromLeft;
-            
             break;
         case UISwipeGestureRecognizerDirectionRight:
              idx --;
@@ -49,55 +41,29 @@
                 idx = 3;
             }
             option = UIViewAnimationOptionTransitionCurlDown;
-            subtype = kCATransitionFromRight;  
-            
+            subtype = kCATransitionFromRight;
         break;
-     
         default:
             break;
     }
     UIImage * img = [UIImage imageNamed:[NSString stringWithFormat:@"%.2zd",idx]];
     NSLog(@"%.2zd",idx);
-    
-//    [UIView transitionWithView:self.view duration:0.25 options:option animations:^{
         _imgV.image = img;
-//    } completion:nil];
-
     CATransition * transition = [CATransition animation];
-//    transition.type = kCATransitionReveal;
-    
     transition.type = @"oglFlip";
-    
     transition.subtype = subtype;
-    
-    
     [_imgV.layer addAnimation:transition forKey:nil];
-    
-    
-    
 }
-
-#pragma mark - 搭建界面
-- (void)setupUI
-{
-    
+- (void)setupUI{
     UIImageView * V = [[UIImageView alloc]initWithFrame:self.view.bounds];
-    
     V.image = [UIImage imageNamed:@"01"];
     _imgV = V;
-    
     [self.view addSubview:V];
-    
     UISwipeGestureRecognizer * swipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeAction:)];
-    
     [self.view addGestureRecognizer:swipe];
-    
     UISwipeGestureRecognizer * leftSwipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeAction:)];
-    
     leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:leftSwipe];
-    
-  
 }
 
 
