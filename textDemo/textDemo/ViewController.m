@@ -135,8 +135,7 @@
     
     
     //  物理仿真
-    
-    
+        
 //    UITouch *touch = [touches anyObject];
 //    CGPoint point = [touch locationInView:touch.view];
 //    
